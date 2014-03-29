@@ -10,7 +10,7 @@ feature 'register a dog', %Q{
 
 # * An owner must specify their first name, last name, email address, and dog's name.
 # * Upon adding my entry, I can see a list of other registered dog owners.
-# * An owner's full_name can be requested. Hint: This will require an instance method
+# * An owner's full_name can be requested.
 
 
   scenario 'create a valid dog owner' do
@@ -22,7 +22,10 @@ feature 'register a dog', %Q{
     fill_in 'First Name', with: 'Conan'
     fill_in 'Last Name', with: 'Bennett'
     fill_in 'Email', with: 'user@example.com'
+
+    # design question.. where to test for adding Dog attributes. Try here, and again on another page for adding MORE dogs to single owner.
     fill_in 'Dog Name', with: 'Oscar'
+    fill_in 'Dog Breed', with: 'Boxer'
 
     click_button 'Create Dog Owner'
     expect(page).to have_content('Dog owner created!')
