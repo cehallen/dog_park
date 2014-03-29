@@ -11,9 +11,13 @@ feature 'register a dog', %Q{
 # * An owner must specify their first name, last name, email address, and dog's name.
 # * Upon adding my entry, I can see a list of other registered dog owners.
 # * An owner's full_name can be requested. Hint: This will require an instance method
+
+
   scenario 'create a valid dog owner' do
     prev_count = Owner.count
-    visit '/owner/new'
+
+    # visit new_owner_path
+    visit 'owners/new'
 
     fill_in 'First Name', with: 'Conan'
     fill_in 'Last Name', with: 'Bennett'
@@ -21,11 +25,35 @@ feature 'register a dog', %Q{
     fill_in 'Dog Name', with: 'Oscar'
 
     click_button 'Create Dog Owner'
-    expect(page).to have_content('Dog owner created')
+    expect(page).to have_content('Dog owner created!')
     expect(page).to have_content('Conan')
     expect(Owner.count).to eq(prev_count + 1)
   end
-  scenario 'create an invalid dog owner'
+
+  scenario 'create an invalid dog owner' do
+    prev_count = Owner.count
+
+    visit 'owners/new'
+
+    fill_in 'First Name', with: 'Lisa'
+    fill_in 'Last Name', with: 'Suarez'
+    # no email or dog name
+
+    click_button 'Create Dog Owner'
+    expect(page).to have_content("can't be blank")
+    # expect(page).to have_content("Sorry, must include email")
+    # couldn't figure out simple_form custom error msgs.
+    expect(Owner.count).to eq(prev_count)
+  end
+
+  scenario 'linking to new page from owner index' do
+    visit 'owners'
+
+    click_link 'Register'
+    
+    expect(page).to have_content('Add Dog Owner')
+  end
+
   scenario 'create a valid dog'
   scenario 'create an invalid dog'
   scenario 'view all registered dogs'
