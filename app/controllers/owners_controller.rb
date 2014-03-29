@@ -26,6 +26,6 @@ class OwnersController < ApplicationController
 
   def owner_params
     params.require(:owner)
-      .permit(:first_name, :last_name, :dog_name, :email)
+      .permit(:first_name, :last_name, :dog_name, :email, :breed)
   end
 end

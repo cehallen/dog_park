@@ -6,6 +6,7 @@
     <th>Last Name</th>
     <th>Email</th>
     <th>Dog Name</th>
+    <th>Dog Breed</th>
   </tr>
   <% @owners.each do |owner| %>
     <tr>
@@ -13,6 +14,7 @@
       <td><%= owner.last_name %></td>
       <td><%= owner.email %></td>
       <td><%= owner.dog_name %></td>
+      <td><%= owner.breed %></td>
     </tr>
   <% end %>
 </table>

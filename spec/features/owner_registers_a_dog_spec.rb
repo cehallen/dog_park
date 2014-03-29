@@ -50,13 +50,9 @@ feature 'register a dog', %Q{
     visit 'owners'
 
     click_link 'Register'
-    
+
     expect(page).to have_content('Add Dog Owner')
   end
-
-  scenario 'create a valid dog'
-  scenario 'create an invalid dog'
-  scenario 'view all registered dogs'
 
 end
 
