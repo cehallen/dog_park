@@ -1,0 +1,2 @@
+- write feature tests for deleting and editing dogs and owners
+- worry about the select text on new dog later

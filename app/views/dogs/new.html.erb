@@ -1,0 +1,14 @@
+<h3>Add a Dog</h3>
+
+
+
+<%= simple_form_for @dog do |f| %>
+
+  <%= f.input :owner_id, label: 'Owner', collection: @owners %>
+  <%= f.input :name, label: 'Name', input_html: { size: 30 } %>
+  <%= f.input :breed, label: 'Breed', input_html: { size: 30 }  %>
+  
+  <%= f.button :submit, 'Add Dog' %>
+<% end %>
+
+<h5><%= link_to "Back to Registry", owners_path %></h5>

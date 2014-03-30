@@ -1,8 +1,6 @@
 <h3>Add Dog Owner</h3>
 
-<% if flash[:notice].present? %>
-  <%= flash[:notice] %>
-<% end %>
+
 
 <%= simple_form_for @owner do |f| %>
   <%= f.input :first_name, label: 'First Name', input_html: { size: 30 } %>

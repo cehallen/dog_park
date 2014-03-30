@@ -23,11 +23,6 @@ feature 'register a dog', %Q{
     fill_in 'Last Name', with: 'Bennett'
     fill_in 'Email', with: 'user@example.com'
 
-    # design question.. where to test for adding Dog attributes. Try here, and again on another page for adding MORE dogs to single owner.
-    # couldnt think of a good solution.  will make dog entries a separate form (add dog link next to owner)
-    # fill_in 'Dog Name', with: 'Oscar'
-    # fill_in 'Dog Breed', with: 'Boxer'
-
     click_button 'Create Dog Owner'
     expect(page).to have_content('Dog owner created!')
     expect(page).to have_content('Conan')

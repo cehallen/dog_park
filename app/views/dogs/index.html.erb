@@ -1,0 +1,20 @@
+<h3>Dog Park Dogs List, Spring 2014</h3>
+
+<table>
+  <tr>
+    <th>Owner Name</th>
+    <th>Dog Name</th>
+    <th>Dog Breed</th>
+  </tr>
+  <% @dogs.each do |dog| %>
+    <tr>
+      <td><%= dog.owner.full_name %></td>
+      <td><%= dog.name %></td>
+      <td><%= dog.breed %></td>
+      <td></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "Register", new_owner_path %></p>
+<p><%= link_to "Add Dog", new_dog_path %></p>
